@@ -1,10 +1,36 @@
 class Cog{
-    constructor() {
-        this.spokes = [
-            [0,1,0],
-            [0,8,0],
-            [0,0,0],
-        ];
+    constructor(data) {
+        if (data == 1) {
+            this.spokes = [
+                [1]
+            ];
+        } else if (data == 2) {
+            this.spokes = [
+                [1,1],
+                [1,1]
+            ];
+        }else if (data == 3) {
+            this.spokes = [
+                [1,1,1],
+                [1,8,1],
+                [1,1,1]
+            ];
+        } else if (data == 4) {
+            this.spokes = [
+                [1,1,1,1],
+                [1,8,8,1],
+                [1,8,8,1],
+                [1,1,1,1]
+            ];
+        } else {
+            console.log("Cogs must be between 1 and 4 spokes long. Setting cog to be 4 spokes.")
+            this.spokes = [
+                [1,1,1,1],
+                [1,8,8,1],
+                [1,8,8,1],
+                [1,1,1,1]
+            ];
+        }
         this.left = null;
         this.right = null;
     }
@@ -63,16 +89,3 @@ class Machine{
 
 let gearLine = new Machine
 gearLine.start = new Cog
-gearLine.showCogs()
-console.log("Rotating Right")
-gearLine.rotateRight()
-gearLine.showCogs()
-console.log("Rotating Left")
-gearLine.rotateLeft()
-gearLine.showCogs()
-console.log("Rotating Left")
-gearLine.rotateLeft()
-gearLine.showCogs()
-console.log("Rotating Left")
-gearLine.rotateLeft()
-gearLine.showCogs()
